@@ -1,0 +1,25 @@
+{
+    'name': 'ebayLike',
+    'category': 'Website',
+    'summary': 'Ebay like platform',
+    'website': 'pytex.net',
+    'version': '1.0',
+    'description': """Sell your products online with ebay-like platform.""",
+    'author': 'OpenERP SA',
+    'depends': ['website'],
+    'data': [
+        'data/data.xml',
+        'views/views.xml',
+        'views/templates.xml',
+        'views/payment.xml',
+        'views/sale_order.xml',
+        'security/ir.model.access.csv',
+        'security/website_sale.xml',
+    ],
+    'demo': [
+        'data/demo.xml',
+    ],
+    'qweb': ['static/src/xml/*.xml'],
+    'installable': True,
+    'application': True,
+}
