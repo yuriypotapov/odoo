@@ -37,7 +37,7 @@
         </record>
 
         <menuitem name="Auctions" id="menu_ebay_like_auctions" sequence="90"/>
-            <menuitem name="Auctions" id="auctions" sequence="10" parent="menu_ebay_like_auctions"/>
-                <menuitem name="Auctions list" id="auctions_list" sequence="10" parent="auctions" action="ebay_like_auctions"/>
+            <menuitem name="Auctions" id="auctions_menu" sequence="10" parent="menu_ebay_like_auctions"/>
+                <menuitem name="Auctions list" id="auctions_list" sequence="10" parent="auctions_menu" action="ebay_like_auctions"/>
     </data>
 </openerp>
