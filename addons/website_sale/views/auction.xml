@@ -1,5 +1,35 @@
 <openerp>
     <data>
+        <record id="ebay_like_auctions_view" model="ir.ui.view"><!--//create view form-->
+            <field name="name">Auctions</field>
+            <field name="model">ebay_like.auctions</field>
+            <field name="arch" type="xml">
+                <form string="Auctions">
+                    <sheet>
+                        <tree toolbar="1">
+                            <group>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="min_price"/>
+                            </group>
+                        </tree>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ebay_like_auctions_tree" model="ir.ui.view"><!--//create view tree-->
+            <field name="name">Auctions tree</field>
+            <field name="model">ebay_like.auctions</field>
+            <field name="arch" type="xml">
+                <tree string="Auctions">
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="min_price"/>
+                </tree>
+            </field>
+        </record>
+
         <record id="ebay_like_auctions" model="ir.actions.act_window">
             <field name="name">Auctions</field>
             <field name="res_model">ebay_like.auctions</field>
@@ -10,4 +40,4 @@
             <menuitem name="Auctions" id="auctions" sequence="10" parent="menu_ebay_like_auctions"/>
                 <menuitem name="Auctions list" id="auctions_list" sequence="10" parent="auctions" action="ebay_like_auctions"/>
     </data>
-    </openerp>
+</openerp>
