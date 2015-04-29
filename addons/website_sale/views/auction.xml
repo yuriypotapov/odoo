@@ -1,5 +1,13 @@
 <openerp>
     <data>
+        <record id="ebay_like_auctions" model="ir.actions.act_window">
+            <field name="name">Auctions</field>
+            <field name="res_model">ebay_like.auctions</field>
+            <field name="view_model">tree,from</field>
+        </record>
 
-        </data>
+        <menuitem name="Auctions" id="menu_ebay_like_auctions" sequence="90"/>
+            <menuitem name="Auctions" id="auctions" sequence="10" parent="menu_ebay_like_auctions"/>
+                <menuitem name="Auctions list" id="auctions_list" sequence="10" parent="auctions" action="ebay_like_auctions"/>
+    </data>
     </openerp>
