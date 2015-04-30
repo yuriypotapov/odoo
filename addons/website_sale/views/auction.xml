@@ -1,43 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <record id="ebay_like_auctions_view" model="ir.ui.view"><!--//create view form-->
-            <field name="name">Auctions</field>
-            <field name="model">ebay_like.auctions</field>
+
+        <record id="new_auction" model="ir.ui.view">
+            <field name="name">Auction</field>
+            <field name="model">auction.edit</field>
             <field name="arch" type="xml">
-                <form string="Auctions">
+                <form string="Auction">
                     <sheet>
-                        <tree toolbar="1">
-                            <group>
-                                <field name="start_date"/>
-                                <field name="end_date"/>
-                                <field name="min_price"/>
-                            </group>
-                        </tree>
+                       <tree toolbar="1">
+                                    <label for="name" class="oe_edit_only" string="Auction name"/>
+                                    <h1>
+                                        <field name="auction_name"/>
+                                    </h1>
+                                    <group>
+                                        <field name="start_auction_date_time"/>
+                                        <field name="stop_auction_date_time"/>
+                                        <field name="minimum_bid"/>
+                                    </group>
+                                   <separator string="Description" colspan="4"/>
+                                    <field name="description_auction"/>
+                       </tree>
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <record id="ebay_like_auctions_tree" model="ir.ui.view"><!--//create view tree-->
-            <field name="name">Auctions tree</field>
-            <field name="model">ebay_like.auctions</field>
+        <record id="new_auctions_tree" model="ir.ui.view"><!--//create view tree-->
+            <field name="name">New Auctions tree</field>
+            <field name="model">auction.edit</field>
             <field name="arch" type="xml">
-                <tree string="Auctions">
-                    <field name="start_date"/>
-                    <field name="end_date"/>
-                    <field name="min_price"/>
-                </tree>
+                    <tree string="Auctions">
+                        <field name="auction_name"/>
+                        <field name="start_auction_date_time"/>
+                        <field name="stop_auction_date_time"/>
+                        <field name="minimum_bid"/>
+                    </tree>
             </field>
         </record>
 
-        <record id="ebay_like_auctions" model="ir.actions.act_window">
-            <field name="name">Auctions</field>
-            <field name="res_model">ebay_like.auctions</field>
+        <record id="new_auction_action" model="ir.actions.act_window">
+            <field name="name">New Auction</field>
+            <field name="res_model">auction.edit</field>
             <field name="view_model">tree,from</field>
         </record>
 
-        <menuitem name="Auctions" id="menu_ebay_like_auctions" sequence="90"/>
-            <menuitem name="Auctions" id="auctions_menu" sequence="10" parent="menu_ebay_like_auctions"/>
-                <menuitem name="Auctions list" id="auctions_list" sequence="10" parent="auctions_menu" action="ebay_like_auctions"/>
+        <record id="new_auction_tracker_action" model="ir.actions.act_window">
+            <field name="name">New Auction tracker</field>
+            <field name="res_model">auction.edit</field>
+            <field name="view_model">tree,from</field>
+        </record>
+
+        <menuitem name="Auctions" id="auctions_menu" sequence="90"/>
+            <menuitem name="Auctions category" id="auction_category" sequence="10" parent="auctions_menu"/>
+                <menuitem name="Actions list" id="auctions_list" sequence="10" parent="auction_category" action="new_auction_action"/>
+                <menuitem name="Actions tracker" id="auctions_tracker" sequence="10" parent="auction_category" action="new_auction_tracker_action"/>
     </data>
 </openerp>
