@@ -8,7 +8,7 @@ class Auctions(models.Model):
     start_date = fields.Datetime(string='Beginning of auction', required=True)
     end_date = fields.Datetime(string='End of auction', required=True)
     product_id = fields.Many2one('product.product')
-    min_price = fields.Float(required=True)
+    min_price = fields.Float(required=True)     # minimum bid for an auction
 
     # computed_min_lot_price = fields.Float(compute='compute_min_price')
     #
